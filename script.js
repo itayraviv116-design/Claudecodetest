@@ -78,7 +78,7 @@ function saveConfiguration() {
         updateStatus(true);
         enableInput();
         hideConfigPanel();
-        addMessage('system', `Connected! Flora is ready to assist you. \u273F`);
+        addMessage('system', `Connected! Sodi is ready to assist you. \u273F`);
     } catch (error) {
         addMessage('error', 'Invalid URL format. Please check and try again.');
     }
@@ -253,8 +253,8 @@ function addMessage(type, content, timestamp = new Date()) {
 
     const senderNames = {
         'user': 'You',
-        'bot': 'Flora',
-        'system': 'Petal & Bloom',
+        'bot': 'Sodi',
+        'system': 'Sod Yarok',
         'error': 'Notice'
     };
 
@@ -292,8 +292,8 @@ async function addMessageWithTyping(type, content) {
 
 // Display welcome message
 function displayWelcomeMessage() {
-    const welcomeText = `Welcome to Petal & Bloom \u273F
-Hello! I'm Flora, your personal flower shop assistant.
+    const welcomeText = `Welcome to Sod Yarok \u273F
+Hello! I'm Sodi, your personal flower shop assistant.
 I can help you with:
   \u2022 Flower arrangements and bouquets
   \u2022 Seasonal availability and pricing

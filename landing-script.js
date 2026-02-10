@@ -258,6 +258,6 @@ if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
 // Console Message
 // ============================================
 
-console.log('%c\u273F Petal & Bloom \u2014 Botanical Boutique', 'color: #2A4730; font-size: 20px; font-weight: bold;');
+console.log('%c\u273F Sod Yarok \u2014 Botanical Boutique', 'color: #2A4730; font-size: 20px; font-weight: bold;');
 console.log('%cBuilt with 3D gradient mesh animations', 'color: #4E7C57; font-size: 14px;');
 console.log('%cExplore the code: https://github.com/your-repo', 'color: #7A9E7E; font-size: 12px;');
