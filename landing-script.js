@@ -14,16 +14,17 @@ class GradientMesh {
 
         // Gradient points
         this.points = [
-            { x: 0.2, y: 0.3, radius: 0.4, color: [232, 160, 176], speed: 0.5 },
-            { x: 0.8, y: 0.4, radius: 0.35, color: [200, 168, 212], speed: 0.7 },
-            { x: 0.5, y: 0.7, radius: 0.3, color: [139, 175, 142], speed: 0.6 },
-            { x: 0.3, y: 0.8, radius: 0.25, color: [253, 220, 230], speed: 0.8 },
+            { x: 0.2, y: 0.3, radius: 0.4, color: [42, 71, 48], speed: 0.5 },
+            { x: 0.8, y: 0.4, radius: 0.35, color: [122, 158, 126], speed: 0.7 },
+            { x: 0.5, y: 0.7, radius: 0.3, color: [201, 150, 74], speed: 0.6 },
+            { x: 0.3, y: 0.8, radius: 0.25, color: [243, 237, 226], speed: 0.8 },
         ];
 
         this.init();
     }
 
     init() {
+        this.canvas.style.opacity = '0.3';
         this.resize();
         window.addEventListener('resize', () => this.resize());
 
@@ -45,7 +46,7 @@ class GradientMesh {
         this.time += 0.002;
 
         // Clear with warm cream background
-        this.ctx.fillStyle = '#FAF6F0';
+        this.ctx.fillStyle = '#FAFAF7';
         this.ctx.fillRect(0, 0, this.canvas.width, this.canvas.height);
 
         // Draw gradient mesh
@@ -257,6 +258,6 @@ if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
 // Console Message
 // ============================================
 
-console.log('%c\u273F Petal & Bloom Flower Shop', 'color: #C4708A; font-size: 20px; font-weight: bold;');
-console.log('%cBuilt with 3D gradient mesh animations', 'color: #C8A8D4; font-size: 14px;');
+console.log('%c\u273F Petal & Bloom \u2014 Botanical Boutique', 'color: #2A4730; font-size: 20px; font-weight: bold;');
+console.log('%cBuilt with 3D gradient mesh animations', 'color: #4E7C57; font-size: 14px;');
 console.log('%cExplore the code: https://github.com/your-repo', 'color: #7A9E7E; font-size: 12px;');

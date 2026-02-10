@@ -9,22 +9,22 @@
 }
 
 :root {
-    --rose: #C4708A;
-    --rose-light: #E8A0B0;
-    --sage: #7A9E7E;
-    --sage-light: #A8C4AB;
-    --ivory: #FDF8F4;
-    --ivory-dark: #F5EDE4;
-    --espresso: #2C1A14;
-    --espresso-light: #5C3D2E;
-    --border-rose: #C4708A;
-    --glow-rose: rgba(196, 112, 138, 0.3);
+    --green-deep: #2A4730;
+    --green-mid: #4E7C57;
+    --green-sage: #7A9E7E;
+    --gold: #C9964A;
+    --cream: #FAFAF7;
+    --cream-warm: #F3EDE2;
+    --white: #FFFFFF;
+    --charcoal: #1C1C1C;
+    --mid-gray: #6B6B6B;
+    --light-border: #E5E0D8;
 }
 
 body {
     font-family: 'Jost', 'Segoe UI', sans-serif;
-    background-color: var(--ivory);
-    color: var(--espresso);
+    background-color: #FAFAF7;
+    color: #1C1C1C;
     overflow: hidden;
     height: 100vh;
     display: flex;
@@ -41,7 +41,7 @@ body {
     height: 100%;
     pointer-events: none;
     z-index: 0;
-    background: var(--ivory);
+    background: #FAFAF7;
 }
 
 /* Terminal container */
@@ -51,12 +51,10 @@ body {
     max-width: 900px;
     height: 85vh;
     max-height: 700px;
-    background: rgba(253, 248, 244, 0.96);
-    border: 2px solid var(--border-rose);
-    border-radius: 16px;
-    box-shadow:
-        0 8px 40px var(--glow-rose),
-        0 2px 12px rgba(44, 26, 20, 0.08);
+    background: #FFFFFF;
+    border: 1px solid var(--light-border);
+    border-radius: 12px;
+    box-shadow: 0 4px 24px rgba(42, 71, 48, 0.08);
     display: flex;
     flex-direction: column;
     overflow: hidden;
@@ -65,9 +63,9 @@ body {
 
 /* Terminal header */
 .terminal-header {
-    background: linear-gradient(135deg, var(--rose) 0%, var(--sage) 100%);
+    background: var(--green-deep);
     padding: 12px 20px;
-    border-bottom: 1px solid var(--border-rose);
+    border-bottom: 1px solid var(--light-border);
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -77,7 +75,8 @@ body {
     font-family: 'Cormorant Garamond', serif;
     font-size: 18px;
     font-weight: 700;
-    color: #FDF8F4;
+    color: #FFFFFF;
+    letter-spacing: 0.05em;
     display: flex;
     align-items: center;
     gap: 8px;
@@ -93,26 +92,25 @@ body {
     align-items: center;
     gap: 8px;
     font-size: 12px;
-    color: rgba(253, 248, 244, 0.9);
+    color: rgba(255, 255, 255, 0.9);
 }
 
 .status-indicator {
     width: 10px;
     height: 10px;
     border-radius: 50%;
-    background-color: rgba(253, 248, 244, 0.4);
-    box-shadow: 0 0 5px currentColor;
+    background-color: #6B6B6B;
 }
 
 .status-indicator.online {
-    background-color: #FDF8F4;
+    background-color: var(--gold);
     animation: pulse 2s infinite;
 }
 
 /* Configuration panel */
 .config-panel {
-    background: rgba(245, 237, 228, 0.8);
-    border-bottom: 1px solid rgba(196, 112, 138, 0.3);
+    background: var(--cream-warm);
+    border-bottom: 1px solid var(--light-border);
     max-height: 0;
     overflow: hidden;
     transition: max-height 0.3s ease;
@@ -128,16 +126,16 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-bottom: 1px solid rgba(196, 112, 138, 0.3);
+    border-bottom: 1px solid var(--light-border);
     font-family: 'Cormorant Garamond', serif;
     font-size: 15px;
-    color: var(--espresso);
+    color: var(--charcoal);
 }
 
 .config-toggle {
     background: none;
     border: none;
-    color: var(--rose);
+    color: var(--green-deep);
     cursor: pointer;
     font-size: 18px;
     padding: 0;
@@ -146,7 +144,7 @@ body {
 }
 
 .config-toggle:hover {
-    color: var(--espresso);
+    color: var(--charcoal);
 }
 
 .config-content {
@@ -157,15 +155,15 @@ body {
     display: block;
     margin-bottom: 8px;
     font-size: 14px;
-    color: var(--espresso-light);
+    color: var(--mid-gray);
     font-weight: 500;
 }
 
 .config-content input {
     width: 100%;
-    background: var(--ivory);
-    border: 1px solid rgba(196, 112, 138, 0.5);
-    color: var(--espresso);
+    background: var(--white);
+    border: 1px solid var(--light-border);
+    color: var(--charcoal);
     padding: 10px;
     font-family: 'Jost', sans-serif;
     font-size: 14px;
@@ -175,14 +173,14 @@ body {
 
 .config-content input:focus {
     outline: none;
-    box-shadow: 0 0 0 3px rgba(196, 112, 138, 0.2);
-    border-color: var(--rose);
+    box-shadow: 0 0 0 3px rgba(78, 124, 87, 0.15);
+    border-color: var(--green-mid);
 }
 
 .config-save-btn {
-    background: var(--rose);
-    border: 1px solid var(--rose);
-    color: var(--ivory);
+    background: var(--green-deep);
+    border: 1px solid var(--green-deep);
+    color: var(--white);
     padding: 10px 20px;
     cursor: pointer;
     font-family: 'Jost', sans-serif;
@@ -193,16 +191,15 @@ body {
 }
 
 .config-save-btn:hover {
-    background: var(--espresso-light);
-    border-color: var(--espresso-light);
-    box-shadow: 0 4px 12px var(--glow-rose);
+    background: var(--green-mid);
+    border-color: var(--green-mid);
 }
 
 .config-hint {
     margin-top: 12px;
     font-size: 12px;
     opacity: 0.7;
-    color: var(--espresso-light);
+    color: var(--mid-gray);
 }
 
 .config-method {
@@ -213,9 +210,9 @@ body {
 .config-select {
     width: 100%;
     padding: 10px;
-    background: var(--ivory);
-    border: 1px solid rgba(196, 112, 138, 0.5);
-    color: var(--espresso);
+    background: var(--white);
+    border: 1px solid var(--light-border);
+    color: var(--charcoal);
     font-family: 'Jost', sans-serif;
     font-size: 14px;
     margin-top: 8px;
@@ -226,8 +223,8 @@ body {
 
 .config-select:focus {
     outline: none;
-    box-shadow: 0 0 0 3px rgba(196, 112, 138, 0.2);
-    border-color: var(--rose);
+    box-shadow: 0 0 0 3px rgba(78, 124, 87, 0.15);
+    border-color: var(--green-mid);
 }
 
 .config-hint-small {
@@ -235,7 +232,7 @@ body {
     opacity: 0.6;
     margin-top: 4px;
     margin-bottom: 0;
-    color: var(--espresso-light);
+    color: var(--mid-gray);
 }
 
 /* Terminal body (messages area) */
@@ -243,7 +240,7 @@ body {
     flex: 1;
     overflow-y: auto;
     padding: 20px;
-    background: rgba(253, 248, 244, 0.6);
+    background: var(--white);
 }
 
 .terminal-body::-webkit-scrollbar {
@@ -251,17 +248,17 @@ body {
 }
 
 .terminal-body::-webkit-scrollbar-track {
-    background: var(--ivory-dark);
+    background: var(--cream-warm);
     border-radius: 4px;
 }
 
 .terminal-body::-webkit-scrollbar-thumb {
-    background: rgba(196, 112, 138, 0.4);
+    background: rgba(122, 158, 126, 0.4);
     border-radius: 4px;
 }
 
 .terminal-body::-webkit-scrollbar-thumb:hover {
-    background: var(--rose);
+    background: var(--green-sage);
 }
 
 .message-container {
@@ -284,7 +281,7 @@ body {
     align-items: center;
     font-size: 12px;
     opacity: 0.7;
-    color: var(--espresso-light);
+    color: var(--mid-gray);
 }
 
 .message-sender {
@@ -299,32 +296,33 @@ body {
 
 .message-content {
     padding: 10px;
-    border-left: 2px solid var(--rose);
+    border-left: 2px solid var(--green-sage);
     padding-left: 12px;
     line-height: 1.6;
-    color: var(--espresso);
+    color: var(--charcoal);
     white-space: pre-wrap;
 }
 
 .message.user .message-content {
-    border-left-color: var(--sage);
+    border-left-color: var(--green-sage);
     background: rgba(122, 158, 126, 0.06);
     border-radius: 0 6px 6px 0;
 }
 
 .message.bot .message-content {
-    border-left-color: var(--rose);
-    background: rgba(196, 112, 138, 0.06);
+    border-left-color: var(--green-deep);
+    background: rgba(42, 71, 48, 0.04);
     border-radius: 0 6px 6px 0;
 }
 
 .message.system .message-content {
-    border-left-color: var(--espresso-light);
-    color: var(--espresso-light);
+    border-left: none;
+    color: var(--mid-gray);
     font-style: italic;
     opacity: 0.85;
-    background: rgba(92, 61, 46, 0.04);
+    background: none;
     border-radius: 0 6px 6px 0;
+    padding-left: 10px;
 }
 
 .message.error .message-content {
@@ -351,22 +349,22 @@ body {
     align-items: center;
     gap: 10px;
     padding: 15px 20px;
-    background: var(--ivory-dark);
-    border-top: 1px solid rgba(196, 112, 138, 0.3);
+    background: #FFFFFF;
+    border-top: 1px solid var(--light-border);
 }
 
 .prompt {
     font-weight: 600;
     white-space: nowrap;
-    color: var(--rose);
+    color: var(--green-deep);
     font-size: 14px;
 }
 
 .input-field {
     flex: 1;
-    background: var(--ivory);
-    border: 1px solid rgba(196, 112, 138, 0.4);
-    color: var(--espresso);
+    background: var(--white);
+    border: 1px solid var(--light-border);
+    color: var(--charcoal);
     padding: 10px;
     font-family: 'Jost', sans-serif;
     font-size: 14px;
@@ -375,8 +373,8 @@ body {
 
 .input-field:focus {
     outline: none;
-    box-shadow: 0 0 0 3px rgba(196, 112, 138, 0.2);
-    border-color: var(--rose);
+    box-shadow: 0 0 0 3px rgba(78, 124, 87, 0.15);
+    border-color: var(--green-mid);
 }
 
 .input-field:disabled {
@@ -385,13 +383,13 @@ body {
 }
 
 .input-field::placeholder {
-    color: rgba(44, 26, 20, 0.4);
+    color: rgba(28, 28, 28, 0.4);
 }
 
 .send-btn {
-    background: var(--rose);
-    border: 1px solid var(--rose);
-    color: var(--ivory);
+    background: var(--green-deep);
+    border: 1px solid var(--green-deep);
+    color: var(--white);
     padding: 10px 20px;
     cursor: pointer;
     font-family: 'Jost', sans-serif;
@@ -402,9 +400,8 @@ body {
 }
 
 .send-btn:hover:not(:disabled) {
-    background: var(--espresso-light);
-    border-color: var(--espresso-light);
-    box-shadow: 0 4px 12px var(--glow-rose);
+    background: var(--green-mid);
+    border-color: var(--green-mid);
     transform: translateY(-1px);
 }
 
@@ -419,15 +416,15 @@ body {
     align-items: center;
     gap: 10px;
     padding: 10px 20px;
-    background: rgba(245, 237, 228, 0.6);
-    border-top: 1px solid rgba(196, 112, 138, 0.2);
+    background: #FFFFFF;
+    border-top: 1px solid var(--light-border);
     font-size: 12px;
 }
 
 .footer-btn {
     background: none;
-    border: 1px solid rgba(196, 112, 138, 0.4);
-    color: var(--espresso-light);
+    border: 1px solid var(--light-border);
+    color: var(--mid-gray);
     padding: 6px 12px;
     cursor: pointer;
     font-family: 'Jost', sans-serif;
@@ -437,15 +434,15 @@ body {
 }
 
 .footer-btn:hover {
-    background: rgba(196, 112, 138, 0.1);
-    border-color: var(--rose);
-    color: var(--rose);
+    background: rgba(122, 158, 126, 0.1);
+    border-color: var(--green-sage);
+    color: var(--green-deep);
 }
 
 .footer-info {
     margin-left: auto;
     opacity: 0.55;
-    color: var(--espresso-light);
+    color: var(--mid-gray);
 }
 
 /* Animations */

@@ -393,12 +393,13 @@ document.addEventListener('submit', (e) => {
 let petalCanvas, petalCtx;
 let petals = [];
 
-// Petal colors: rose, lavender, sage
+// Petal colors: green/gold/white botanical tones
 const petalColors = [
-    [232, 160, 176],   // rose
-    [200, 168, 212],   // lavender
-    [139, 175, 142],   // sage
-    [253, 220, 230],   // light rose
+    [122, 158, 126],   // green-sage  #7A9E7E
+    [78, 124, 87],     // green-mid   #4E7C57
+    [201, 150, 74],    // gold        #C9964A
+    [168, 196, 171],   // sage-light  #A8C4AB
+    [212, 197, 160],   // cream-warm  #D4C5A0
 ];
 
 // Initialize the floating petal canvas animation
