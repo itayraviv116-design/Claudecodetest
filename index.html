@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="he" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sod Yarok — Flower Shop Assistant</title>
+    <title>סוד ירוק — עוזר חנות פרחים</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -19,22 +19,22 @@
         <div class="terminal-header">
             <div class="terminal-title">
                 <span class="terminal-icon">✿</span>
-                <span>SodYarok</span>
+                <span>סוד ירוק</span>
             </div>
             <div class="terminal-status">
                 <span class="status-indicator" id="statusIndicator"></span>
-                <span id="statusText">OFFLINE</span>
+                <span id="statusText">לא מחובר</span>
             </div>
         </div>
 
         <!-- Configuration panel -->
         <div class="config-panel" id="configPanel">
             <div class="config-header">
-                <span>⚙ Connection Settings</span>
+                <span>⚙ הגדרות חיבור</span>
                 <button class="config-toggle" id="configToggle">✕</button>
             </div>
             <div class="config-content">
-                <label for="webhookUrl">n8n Webhook URL:</label>
+                <label for="webhookUrl">כתובת Webhook של n8n:</label>
                 <input
                     type="text"
                     id="webhookUrl"
@@ -42,15 +42,15 @@
                     autocomplete="off"
                 >
                 <div class="config-method">
-                    <label for="httpMethod">Request Method:</label>
+                    <label for="httpMethod">שיטת בקשה:</label>
                     <select id="httpMethod" class="config-select">
-                        <option value="GET" selected>GET (n8n default)</option>
+                        <option value="GET" selected>GET (ברירת מחדל n8n)</option>
                         <option value="POST">POST</option>
                     </select>
-                    <p class="config-hint-small">GET appends ?message= to the URL; POST sends a JSON body.</p>
+                    <p class="config-hint-small">GET מוסיף ?message= לכתובת; POST שולח גוף JSON.</p>
                 </div>
-                <button id="saveConfig" class="config-save-btn">Save Settings</button>
-                <p class="config-hint">Need help? Check README.md for n8n setup instructions.</p>
+                <button id="saveConfig" class="config-save-btn">שמור הגדרות</button>
+                <p class="config-hint">צריך עזרה? עיין ב-README.md להוראות הגדרת n8n.</p>
             </div>
         </div>
 
@@ -63,23 +63,23 @@
 
         <!-- Input area -->
         <div class="terminal-input">
-            <span class="prompt">you ~&gt;</span>
+            <span class="prompt">את/ה ~></span>
             <input
                 type="text"
                 id="messageInput"
                 class="input-field"
-                placeholder="Ask about flowers, arrangements, or care tips..."
+                placeholder="שאל על פרחים, סידורים או טיפים לטיפול..."
                 autocomplete="off"
                 disabled
             >
-            <button id="sendButton" class="send-btn" disabled>Send ✿</button>
+            <button id="sendButton" class="send-btn" disabled>שלח ✿</button>
         </div>
 
         <!-- Footer controls (config + clear buttons) -->
         <div class="terminal-footer">
-            <button id="configButton" class="footer-btn">⚙ Settings</button>
-            <button id="clearButton" class="footer-btn">Clear</button>
-            <span class="footer-info">Press ENTER to send</span>
+            <button id="configButton" class="footer-btn">⚙ הגדרות</button>
+            <button id="clearButton" class="footer-btn">נקה</button>
+            <span class="footer-info">לחץ ENTER לשליחה</span>
         </div>
     </div>
 

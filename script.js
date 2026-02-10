@@ -78,7 +78,7 @@ function saveConfiguration() {
         updateStatus(true);
         enableInput();
         hideConfigPanel();
-        addMessage('system', `Connected! Sodi is ready to assist you. \u273F`);
+        addMessage('system', `מחוברים! סודי מוכנה לעזור לכם. \u273F`);
     } catch (error) {
         addMessage('error', 'Invalid URL format. Please check and try again.');
     }
@@ -252,10 +252,10 @@ function addMessage(type, content, timestamp = new Date()) {
     messageDiv.className = `message ${type}`;
 
     const senderNames = {
-        'user': 'You',
-        'bot': 'Sodi',
-        'system': 'Sod Yarok',
-        'error': 'Notice'
+        'user': 'את/ה',
+        'bot': 'סודי',
+        'system': 'סוד ירוק',
+        'error': 'הודעה'
     };
 
     messageDiv.innerHTML = `
@@ -292,20 +292,20 @@ async function addMessageWithTyping(type, content) {
 
 // Display welcome message
 function displayWelcomeMessage() {
-    const welcomeText = `Welcome to Sod Yarok \u273F
-Hello! I'm Sodi, your personal flower shop assistant.
-I can help you with:
-  \u2022 Flower arrangements and bouquets
-  \u2022 Seasonal availability and pricing
-  \u2022 Care tips for your blooms
-  \u2022 Finding the perfect gift for any occasion`;
+    const welcomeText = `ברוכים הבאים לסוד ירוק \u273F
+שלום! אני סודי, העוזרת האישית שלכם בחנות הפרחים.
+אני יכולה לעזור לכם עם:
+  \u2022 סידורי פרחים וזרים
+  \u2022 זמינות עונתית ומחירים
+  \u2022 טיפים לטיפול בפרחים
+  \u2022 מציאת המתנה המושלמת לכל אירוע`;
 
     addMessage('system', welcomeText);
 }
 
 // Clear chat history
 function clearChat() {
-    if (confirm('Clear the conversation and start fresh?')) {
+    if (confirm('למחוק את השיחה ולהתחיל מחדש?')) {
         elements.messageContainer.innerHTML = '';
         displayWelcomeMessage();
     }
