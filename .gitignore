@@ -1,0 +1,7 @@
+# Dev/test artifacts
+test-webhook-server.py
+response.txt
+nul
+
+# Claude IDE config
+.claude/

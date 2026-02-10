@@ -1,0 +1,480 @@
+/* Matrix Terminal Chatbot Styles */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --matrix-cyan: #00ffff;
+    --matrix-dark-cyan: #003333;
+    --matrix-bg: #000000;
+    --matrix-glow: rgba(0, 255, 255, 0.5);
+    --terminal-border: #00ffff;
+}
+
+body {
+    font-family: 'Courier New', Courier, monospace;
+    background-color: var(--matrix-bg);
+    color: var(--matrix-cyan);
+    overflow: hidden;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Matrix background effect */
+.matrix-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+    background: var(--matrix-bg);
+}
+
+/* Terminal container */
+.terminal-container {
+    position: relative;
+    width: 90%;
+    max-width: 900px;
+    height: 85vh;
+    max-height: 700px;
+    background: rgba(0, 0, 0, 0.9);
+    border: 2px solid var(--terminal-border);
+    border-radius: 8px;
+    box-shadow:
+        0 0 20px var(--matrix-glow),
+        inset 0 0 40px rgba(0, 255, 255, 0.1);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    z-index: 1;
+}
+
+/* Terminal header */
+.terminal-header {
+    background: var(--matrix-dark-cyan);
+    padding: 12px 20px;
+    border-bottom: 1px solid var(--terminal-border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.terminal-title {
+    font-size: 16px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.terminal-icon {
+    animation: blink 1.5s infinite;
+}
+
+.terminal-status {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 12px;
+}
+
+.status-indicator {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: #ff0000;
+    box-shadow: 0 0 5px currentColor;
+}
+
+.status-indicator.online {
+    background-color: var(--matrix-cyan);
+    animation: pulse 2s infinite;
+}
+
+/* Configuration panel */
+.config-panel {
+    background: rgba(0, 51, 51, 0.5);
+    border-bottom: 1px solid var(--terminal-border);
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+}
+
+.config-panel.show {
+    max-height: 250px;
+}
+
+.config-header {
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgba(0, 255, 255, 0.3);
+}
+
+.config-toggle {
+    background: none;
+    border: none;
+    color: var(--matrix-cyan);
+    cursor: pointer;
+    font-size: 18px;
+    padding: 0;
+    width: 24px;
+    height: 24px;
+}
+
+.config-toggle:hover {
+    text-shadow: 0 0 5px var(--matrix-glow);
+}
+
+.config-content {
+    padding: 20px;
+}
+
+.config-content label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 14px;
+}
+
+.config-content input {
+    width: 100%;
+    background: var(--matrix-bg);
+    border: 1px solid var(--terminal-border);
+    color: var(--matrix-cyan);
+    padding: 10px;
+    font-family: inherit;
+    font-size: 14px;
+    border-radius: 4px;
+    margin-bottom: 12px;
+}
+
+.config-content input:focus {
+    outline: none;
+    box-shadow: 0 0 5px var(--matrix-glow);
+}
+
+.config-save-btn {
+    background: var(--matrix-dark-cyan);
+    border: 1px solid var(--terminal-border);
+    color: var(--matrix-cyan);
+    padding: 10px 20px;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 14px;
+    border-radius: 4px;
+    transition: all 0.2s;
+}
+
+.config-save-btn:hover {
+    background: var(--matrix-cyan);
+    color: var(--matrix-bg);
+    box-shadow: 0 0 10px var(--matrix-glow);
+}
+
+.config-hint {
+    margin-top: 12px;
+    font-size: 12px;
+    opacity: 0.7;
+}
+
+.config-method {
+    margin-bottom: 1rem;
+    margin-top: 0.5rem;
+}
+
+.config-select {
+    width: 100%;
+    padding: 10px;
+    background: var(--matrix-bg);
+    border: 1px solid var(--terminal-border);
+    color: var(--matrix-cyan);
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 14px;
+    margin-top: 8px;
+    margin-bottom: 8px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.config-select:focus {
+    outline: none;
+    box-shadow: 0 0 5px var(--matrix-glow);
+}
+
+.config-hint-small {
+    font-size: 11px;
+    opacity: 0.6;
+    margin-top: 4px;
+    margin-bottom: 0;
+}
+
+/* Terminal body (messages area) */
+.terminal-body {
+    flex: 1;
+    overflow-y: auto;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.terminal-body::-webkit-scrollbar {
+    width: 8px;
+}
+
+.terminal-body::-webkit-scrollbar-track {
+    background: var(--matrix-bg);
+}
+
+.terminal-body::-webkit-scrollbar-thumb {
+    background: var(--matrix-dark-cyan);
+    border-radius: 4px;
+}
+
+.terminal-body::-webkit-scrollbar-thumb:hover {
+    background: var(--matrix-cyan);
+}
+
+.message-container {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+/* Message styles */
+.message {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    animation: fadeIn 0.3s ease;
+}
+
+.message-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 12px;
+    opacity: 0.7;
+}
+
+.message-sender {
+    font-weight: bold;
+}
+
+.message-time {
+    font-size: 11px;
+}
+
+.message-content {
+    padding: 10px;
+    border-left: 2px solid var(--matrix-cyan);
+    padding-left: 12px;
+    line-height: 1.5;
+    text-shadow: 0 0 2px var(--matrix-glow);
+}
+
+.message.user .message-content {
+    border-left-color: #00cccc;
+}
+
+.message.bot .message-content {
+    border-left-color: #00ffff;
+}
+
+.message.system .message-content {
+    border-left-color: #ffff00;
+    color: #ffff00;
+    font-style: italic;
+    opacity: 0.8;
+}
+
+.message.error .message-content {
+    border-left-color: #ff0000;
+    color: #ff6666;
+}
+
+/* Typing indicator */
+.typing-indicator {
+    display: inline-block;
+}
+
+.typing-indicator::after {
+    content: '█';
+    animation: blink 0.7s infinite;
+}
+
+/* Terminal input */
+.terminal-input {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 15px 20px;
+    background: var(--matrix-dark-cyan);
+    border-top: 1px solid var(--terminal-border);
+}
+
+.prompt {
+    font-weight: bold;
+    white-space: nowrap;
+}
+
+.input-field {
+    flex: 1;
+    background: var(--matrix-bg);
+    border: 1px solid var(--terminal-border);
+    color: var(--matrix-cyan);
+    padding: 10px;
+    font-family: inherit;
+    font-size: 14px;
+    border-radius: 4px;
+}
+
+.input-field:focus {
+    outline: none;
+    box-shadow: 0 0 5px var(--matrix-glow);
+}
+
+.input-field:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.send-btn {
+    background: var(--matrix-dark-cyan);
+    border: 1px solid var(--terminal-border);
+    color: var(--matrix-cyan);
+    padding: 10px 20px;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: bold;
+    border-radius: 4px;
+    transition: all 0.2s;
+}
+
+.send-btn:hover:not(:disabled) {
+    background: var(--matrix-cyan);
+    color: var(--matrix-bg);
+    box-shadow: 0 0 10px var(--matrix-glow);
+}
+
+.send-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* Terminal footer */
+.terminal-footer {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 20px;
+    background: rgba(0, 51, 51, 0.3);
+    border-top: 1px solid rgba(0, 255, 255, 0.3);
+    font-size: 12px;
+}
+
+.footer-btn {
+    background: none;
+    border: 1px solid var(--terminal-border);
+    color: var(--matrix-cyan);
+    padding: 6px 12px;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 12px;
+    border-radius: 4px;
+    transition: all 0.2s;
+}
+
+.footer-btn:hover {
+    background: var(--matrix-dark-cyan);
+    box-shadow: 0 0 5px var(--matrix-glow);
+}
+
+.footer-info {
+    margin-left: auto;
+    opacity: 0.6;
+}
+
+/* Animations */
+@keyframes blink {
+    0%, 50% { opacity: 1; }
+    51%, 100% { opacity: 0; }
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .terminal-container {
+        width: 95%;
+        height: 90vh;
+        max-height: none;
+        border-radius: 4px;
+    }
+
+    .terminal-header {
+        padding: 10px 15px;
+    }
+
+    .terminal-title {
+        font-size: 14px;
+    }
+
+    .terminal-status {
+        font-size: 11px;
+    }
+
+    .terminal-input {
+        flex-wrap: wrap;
+        padding: 12px 15px;
+    }
+
+    .prompt {
+        display: none;
+    }
+
+    .send-btn {
+        width: 100%;
+        margin-top: 8px;
+    }
+
+    .footer-info {
+        display: none;
+    }
+
+    .config-content {
+        padding: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .terminal-title span:not(.terminal-icon) {
+        font-size: 12px;
+    }
+
+    .footer-btn {
+        font-size: 11px;
+        padding: 5px 10px;
+    }
+}
