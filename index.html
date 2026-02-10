@@ -3,20 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Matrix Terminal - n8n Chatbot</title>
+    <title>Petal &amp; Bloom — Flower Shop Assistant</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <!-- Matrix background effect -->
-    <canvas id="matrixCanvas" class="matrix-canvas"></canvas>
+    <!-- Floating petal background effect -->
+    <canvas id="petalCanvas" class="petal-canvas"></canvas>
 
     <!-- Main terminal container -->
     <div class="terminal-container">
         <!-- Terminal header -->
         <div class="terminal-header">
             <div class="terminal-title">
-                <span class="terminal-icon">█</span>
-                <span>MATRIX_CHAT_v1.0</span>
+                <span class="terminal-icon">✿</span>
+                <span>Petal &amp; Bloom</span>
             </div>
             <div class="terminal-status">
                 <span class="status-indicator" id="statusIndicator"></span>
@@ -27,7 +30,7 @@
         <!-- Configuration panel -->
         <div class="config-panel" id="configPanel">
             <div class="config-header">
-                <span>⚙ WEBHOOK CONFIGURATION</span>
+                <span>⚙ Connection Settings</span>
                 <button class="config-toggle" id="configToggle">✕</button>
             </div>
             <div class="config-content">
@@ -46,7 +49,7 @@
                     </select>
                     <p class="config-hint-small">GET appends ?message= to the URL; POST sends a JSON body.</p>
                 </div>
-                <button id="saveConfig" class="config-save-btn">SAVE CONFIGURATION</button>
+                <button id="saveConfig" class="config-save-btn">Save Settings</button>
                 <p class="config-hint">Need help? Check README.md for n8n setup instructions.</p>
             </div>
         </div>
@@ -60,22 +63,22 @@
 
         <!-- Input area -->
         <div class="terminal-input">
-            <span class="prompt">root@matrix:~$</span>
+            <span class="prompt">you ~&gt;</span>
             <input
                 type="text"
                 id="messageInput"
                 class="input-field"
-                placeholder="Type your message..."
+                placeholder="Ask about flowers, arrangements, or care tips..."
                 autocomplete="off"
                 disabled
             >
-            <button id="sendButton" class="send-btn" disabled>SEND</button>
+            <button id="sendButton" class="send-btn" disabled>Send ✿</button>
         </div>
 
         <!-- Footer controls (config + clear buttons) -->
         <div class="terminal-footer">
-            <button id="configButton" class="footer-btn">⚙ CONFIG</button>
-            <button id="clearButton" class="footer-btn">CLEAR</button>
+            <button id="configButton" class="footer-btn">⚙ Settings</button>
+            <button id="clearButton" class="footer-btn">Clear</button>
             <span class="footer-info">Press ENTER to send</span>
         </div>
     </div>

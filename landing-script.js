@@ -14,10 +14,10 @@ class GradientMesh {
 
         // Gradient points
         this.points = [
-            { x: 0.2, y: 0.3, radius: 0.4, color: [0, 102, 255], speed: 0.5 },
-            { x: 0.8, y: 0.4, radius: 0.35, color: [139, 92, 246], speed: 0.7 },
-            { x: 0.5, y: 0.7, radius: 0.3, color: [0, 240, 255], speed: 0.6 },
-            { x: 0.3, y: 0.8, radius: 0.25, color: [59, 130, 246], speed: 0.8 },
+            { x: 0.2, y: 0.3, radius: 0.4, color: [232, 160, 176], speed: 0.5 },
+            { x: 0.8, y: 0.4, radius: 0.35, color: [200, 168, 212], speed: 0.7 },
+            { x: 0.5, y: 0.7, radius: 0.3, color: [139, 175, 142], speed: 0.6 },
+            { x: 0.3, y: 0.8, radius: 0.25, color: [253, 220, 230], speed: 0.8 },
         ];
 
         this.init();
@@ -44,8 +44,8 @@ class GradientMesh {
     animate() {
         this.time += 0.002;
 
-        // Clear with dark background
-        this.ctx.fillStyle = '#070B1F';
+        // Clear with warm cream background
+        this.ctx.fillStyle = '#FAF6F0';
         this.ctx.fillRect(0, 0, this.canvas.width, this.canvas.height);
 
         // Draw gradient mesh
@@ -63,8 +63,8 @@ class GradientMesh {
 
             // Create radial gradient
             const gradient = this.ctx.createRadialGradient(x, y, 0, x, y, radius);
-            gradient.addColorStop(0, `rgba(${point.color[0]}, ${point.color[1]}, ${point.color[2]}, 0.4)`);
-            gradient.addColorStop(0.5, `rgba(${point.color[0]}, ${point.color[1]}, ${point.color[2]}, 0.2)`);
+            gradient.addColorStop(0, `rgba(${point.color[0]}, ${point.color[1]}, ${point.color[2]}, 0.25)`);
+            gradient.addColorStop(0.5, `rgba(${point.color[0]}, ${point.color[1]}, ${point.color[2]}, 0.12)`);
             gradient.addColorStop(1, 'rgba(0, 0, 0, 0)');
 
             this.ctx.fillStyle = gradient;
@@ -257,6 +257,6 @@ if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
 // Console Message
 // ============================================
 
-console.log('%c🚀 Matrix AI Landing Page', 'color: #00F0FF; font-size: 20px; font-weight: bold;');
-console.log('%cBuilt with 3D gradient mesh animations', 'color: #8B5CF6; font-size: 14px;');
-console.log('%cExplore the code: https://github.com/your-repo', 'color: #0066FF; font-size: 12px;');
+console.log('%c\u273F Petal & Bloom Flower Shop', 'color: #C4708A; font-size: 20px; font-weight: bold;');
+console.log('%cBuilt with 3D gradient mesh animations', 'color: #C8A8D4; font-size: 14px;');
+console.log('%cExplore the code: https://github.com/your-repo', 'color: #7A9E7E; font-size: 12px;');

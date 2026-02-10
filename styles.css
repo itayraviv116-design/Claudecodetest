@@ -1,4 +1,6 @@
-/* Matrix Terminal Chatbot Styles */
+/* Petal & Bloom Flower Shop Assistant Styles */
+
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Jost:wght@300;400;500;600&display=swap');
 
 * {
     margin: 0;
@@ -7,17 +9,22 @@
 }
 
 :root {
-    --matrix-cyan: #00ffff;
-    --matrix-dark-cyan: #003333;
-    --matrix-bg: #000000;
-    --matrix-glow: rgba(0, 255, 255, 0.5);
-    --terminal-border: #00ffff;
+    --rose: #C4708A;
+    --rose-light: #E8A0B0;
+    --sage: #7A9E7E;
+    --sage-light: #A8C4AB;
+    --ivory: #FDF8F4;
+    --ivory-dark: #F5EDE4;
+    --espresso: #2C1A14;
+    --espresso-light: #5C3D2E;
+    --border-rose: #C4708A;
+    --glow-rose: rgba(196, 112, 138, 0.3);
 }
 
 body {
-    font-family: 'Courier New', Courier, monospace;
-    background-color: var(--matrix-bg);
-    color: var(--matrix-cyan);
+    font-family: 'Jost', 'Segoe UI', sans-serif;
+    background-color: var(--ivory);
+    color: var(--espresso);
     overflow: hidden;
     height: 100vh;
     display: flex;
@@ -25,8 +32,8 @@ body {
     justify-content: center;
 }
 
-/* Matrix background effect */
-.matrix-canvas {
+/* Floating petal background effect */
+.petal-canvas {
     position: fixed;
     top: 0;
     left: 0;
@@ -34,7 +41,7 @@ body {
     height: 100%;
     pointer-events: none;
     z-index: 0;
-    background: var(--matrix-bg);
+    background: var(--ivory);
 }
 
 /* Terminal container */
@@ -44,12 +51,12 @@ body {
     max-width: 900px;
     height: 85vh;
     max-height: 700px;
-    background: rgba(0, 0, 0, 0.9);
-    border: 2px solid var(--terminal-border);
-    border-radius: 8px;
+    background: rgba(253, 248, 244, 0.96);
+    border: 2px solid var(--border-rose);
+    border-radius: 16px;
     box-shadow:
-        0 0 20px var(--matrix-glow),
-        inset 0 0 40px rgba(0, 255, 255, 0.1);
+        0 8px 40px var(--glow-rose),
+        0 2px 12px rgba(44, 26, 20, 0.08);
     display: flex;
     flex-direction: column;
     overflow: hidden;
@@ -58,24 +65,27 @@ body {
 
 /* Terminal header */
 .terminal-header {
-    background: var(--matrix-dark-cyan);
+    background: linear-gradient(135deg, var(--rose) 0%, var(--sage) 100%);
     padding: 12px 20px;
-    border-bottom: 1px solid var(--terminal-border);
+    border-bottom: 1px solid var(--border-rose);
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
 .terminal-title {
-    font-size: 16px;
-    font-weight: bold;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 18px;
+    font-weight: 700;
+    color: #FDF8F4;
     display: flex;
     align-items: center;
     gap: 8px;
 }
 
 .terminal-icon {
-    animation: blink 1.5s infinite;
+    animation: sparkle 2.5s ease-in-out infinite;
+    display: inline-block;
 }
 
 .terminal-status {
@@ -83,25 +93,26 @@ body {
     align-items: center;
     gap: 8px;
     font-size: 12px;
+    color: rgba(253, 248, 244, 0.9);
 }
 
 .status-indicator {
     width: 10px;
     height: 10px;
     border-radius: 50%;
-    background-color: #ff0000;
+    background-color: rgba(253, 248, 244, 0.4);
     box-shadow: 0 0 5px currentColor;
 }
 
 .status-indicator.online {
-    background-color: var(--matrix-cyan);
+    background-color: #FDF8F4;
     animation: pulse 2s infinite;
 }
 
 /* Configuration panel */
 .config-panel {
-    background: rgba(0, 51, 51, 0.5);
-    border-bottom: 1px solid var(--terminal-border);
+    background: rgba(245, 237, 228, 0.8);
+    border-bottom: 1px solid rgba(196, 112, 138, 0.3);
     max-height: 0;
     overflow: hidden;
     transition: max-height 0.3s ease;
@@ -117,13 +128,16 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-bottom: 1px solid rgba(0, 255, 255, 0.3);
+    border-bottom: 1px solid rgba(196, 112, 138, 0.3);
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 15px;
+    color: var(--espresso);
 }
 
 .config-toggle {
     background: none;
     border: none;
-    color: var(--matrix-cyan);
+    color: var(--rose);
     cursor: pointer;
     font-size: 18px;
     padding: 0;
@@ -132,7 +146,7 @@ body {
 }
 
 .config-toggle:hover {
-    text-shadow: 0 0 5px var(--matrix-glow);
+    color: var(--espresso);
 }
 
 .config-content {
@@ -143,47 +157,52 @@ body {
     display: block;
     margin-bottom: 8px;
     font-size: 14px;
+    color: var(--espresso-light);
+    font-weight: 500;
 }
 
 .config-content input {
     width: 100%;
-    background: var(--matrix-bg);
-    border: 1px solid var(--terminal-border);
-    color: var(--matrix-cyan);
+    background: var(--ivory);
+    border: 1px solid rgba(196, 112, 138, 0.5);
+    color: var(--espresso);
     padding: 10px;
-    font-family: inherit;
+    font-family: 'Jost', sans-serif;
     font-size: 14px;
-    border-radius: 4px;
+    border-radius: 8px;
     margin-bottom: 12px;
 }
 
 .config-content input:focus {
     outline: none;
-    box-shadow: 0 0 5px var(--matrix-glow);
+    box-shadow: 0 0 0 3px rgba(196, 112, 138, 0.2);
+    border-color: var(--rose);
 }
 
 .config-save-btn {
-    background: var(--matrix-dark-cyan);
-    border: 1px solid var(--terminal-border);
-    color: var(--matrix-cyan);
+    background: var(--rose);
+    border: 1px solid var(--rose);
+    color: var(--ivory);
     padding: 10px 20px;
     cursor: pointer;
-    font-family: inherit;
+    font-family: 'Jost', sans-serif;
     font-size: 14px;
-    border-radius: 4px;
+    font-weight: 500;
+    border-radius: 8px;
     transition: all 0.2s;
 }
 
 .config-save-btn:hover {
-    background: var(--matrix-cyan);
-    color: var(--matrix-bg);
-    box-shadow: 0 0 10px var(--matrix-glow);
+    background: var(--espresso-light);
+    border-color: var(--espresso-light);
+    box-shadow: 0 4px 12px var(--glow-rose);
 }
 
 .config-hint {
     margin-top: 12px;
     font-size: 12px;
     opacity: 0.7;
+    color: var(--espresso-light);
 }
 
 .config-method {
@@ -194,20 +213,21 @@ body {
 .config-select {
     width: 100%;
     padding: 10px;
-    background: var(--matrix-bg);
-    border: 1px solid var(--terminal-border);
-    color: var(--matrix-cyan);
-    font-family: 'Courier New', Courier, monospace;
+    background: var(--ivory);
+    border: 1px solid rgba(196, 112, 138, 0.5);
+    color: var(--espresso);
+    font-family: 'Jost', sans-serif;
     font-size: 14px;
     margin-top: 8px;
     margin-bottom: 8px;
-    border-radius: 4px;
+    border-radius: 8px;
     cursor: pointer;
 }
 
 .config-select:focus {
     outline: none;
-    box-shadow: 0 0 5px var(--matrix-glow);
+    box-shadow: 0 0 0 3px rgba(196, 112, 138, 0.2);
+    border-color: var(--rose);
 }
 
 .config-hint-small {
@@ -215,6 +235,7 @@ body {
     opacity: 0.6;
     margin-top: 4px;
     margin-bottom: 0;
+    color: var(--espresso-light);
 }
 
 /* Terminal body (messages area) */
@@ -222,7 +243,7 @@ body {
     flex: 1;
     overflow-y: auto;
     padding: 20px;
-    background: rgba(0, 0, 0, 0.5);
+    background: rgba(253, 248, 244, 0.6);
 }
 
 .terminal-body::-webkit-scrollbar {
@@ -230,16 +251,17 @@ body {
 }
 
 .terminal-body::-webkit-scrollbar-track {
-    background: var(--matrix-bg);
+    background: var(--ivory-dark);
+    border-radius: 4px;
 }
 
 .terminal-body::-webkit-scrollbar-thumb {
-    background: var(--matrix-dark-cyan);
+    background: rgba(196, 112, 138, 0.4);
     border-radius: 4px;
 }
 
 .terminal-body::-webkit-scrollbar-thumb:hover {
-    background: var(--matrix-cyan);
+    background: var(--rose);
 }
 
 .message-container {
@@ -262,10 +284,13 @@ body {
     align-items: center;
     font-size: 12px;
     opacity: 0.7;
+    color: var(--espresso-light);
 }
 
 .message-sender {
-    font-weight: bold;
+    font-weight: 600;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 13px;
 }
 
 .message-time {
@@ -274,30 +299,39 @@ body {
 
 .message-content {
     padding: 10px;
-    border-left: 2px solid var(--matrix-cyan);
+    border-left: 2px solid var(--rose);
     padding-left: 12px;
-    line-height: 1.5;
-    text-shadow: 0 0 2px var(--matrix-glow);
+    line-height: 1.6;
+    color: var(--espresso);
+    white-space: pre-wrap;
 }
 
 .message.user .message-content {
-    border-left-color: #00cccc;
+    border-left-color: var(--sage);
+    background: rgba(122, 158, 126, 0.06);
+    border-radius: 0 6px 6px 0;
 }
 
 .message.bot .message-content {
-    border-left-color: #00ffff;
+    border-left-color: var(--rose);
+    background: rgba(196, 112, 138, 0.06);
+    border-radius: 0 6px 6px 0;
 }
 
 .message.system .message-content {
-    border-left-color: #ffff00;
-    color: #ffff00;
+    border-left-color: var(--espresso-light);
+    color: var(--espresso-light);
     font-style: italic;
-    opacity: 0.8;
+    opacity: 0.85;
+    background: rgba(92, 61, 46, 0.04);
+    border-radius: 0 6px 6px 0;
 }
 
 .message.error .message-content {
-    border-left-color: #ff0000;
-    color: #ff6666;
+    border-left-color: #B85450;
+    color: #8B3A38;
+    background: rgba(184, 84, 80, 0.06);
+    border-radius: 0 6px 6px 0;
 }
 
 /* Typing indicator */
@@ -306,8 +340,9 @@ body {
 }
 
 .typing-indicator::after {
-    content: '█';
-    animation: blink 0.7s infinite;
+    content: '✿';
+    animation: sparkle 0.9s ease-in-out infinite;
+    display: inline-block;
 }
 
 /* Terminal input */
@@ -316,29 +351,32 @@ body {
     align-items: center;
     gap: 10px;
     padding: 15px 20px;
-    background: var(--matrix-dark-cyan);
-    border-top: 1px solid var(--terminal-border);
+    background: var(--ivory-dark);
+    border-top: 1px solid rgba(196, 112, 138, 0.3);
 }
 
 .prompt {
-    font-weight: bold;
+    font-weight: 600;
     white-space: nowrap;
+    color: var(--rose);
+    font-size: 14px;
 }
 
 .input-field {
     flex: 1;
-    background: var(--matrix-bg);
-    border: 1px solid var(--terminal-border);
-    color: var(--matrix-cyan);
+    background: var(--ivory);
+    border: 1px solid rgba(196, 112, 138, 0.4);
+    color: var(--espresso);
     padding: 10px;
-    font-family: inherit;
+    font-family: 'Jost', sans-serif;
     font-size: 14px;
-    border-radius: 4px;
+    border-radius: 8px;
 }
 
 .input-field:focus {
     outline: none;
-    box-shadow: 0 0 5px var(--matrix-glow);
+    box-shadow: 0 0 0 3px rgba(196, 112, 138, 0.2);
+    border-color: var(--rose);
 }
 
 .input-field:disabled {
@@ -346,23 +384,28 @@ body {
     cursor: not-allowed;
 }
 
+.input-field::placeholder {
+    color: rgba(44, 26, 20, 0.4);
+}
+
 .send-btn {
-    background: var(--matrix-dark-cyan);
-    border: 1px solid var(--terminal-border);
-    color: var(--matrix-cyan);
+    background: var(--rose);
+    border: 1px solid var(--rose);
+    color: var(--ivory);
     padding: 10px 20px;
     cursor: pointer;
-    font-family: inherit;
+    font-family: 'Jost', sans-serif;
     font-size: 14px;
-    font-weight: bold;
-    border-radius: 4px;
+    font-weight: 600;
+    border-radius: 8px;
     transition: all 0.2s;
 }
 
 .send-btn:hover:not(:disabled) {
-    background: var(--matrix-cyan);
-    color: var(--matrix-bg);
-    box-shadow: 0 0 10px var(--matrix-glow);
+    background: var(--espresso-light);
+    border-color: var(--espresso-light);
+    box-shadow: 0 4px 12px var(--glow-rose);
+    transform: translateY(-1px);
 }
 
 .send-btn:disabled {
@@ -376,37 +419,45 @@ body {
     align-items: center;
     gap: 10px;
     padding: 10px 20px;
-    background: rgba(0, 51, 51, 0.3);
-    border-top: 1px solid rgba(0, 255, 255, 0.3);
+    background: rgba(245, 237, 228, 0.6);
+    border-top: 1px solid rgba(196, 112, 138, 0.2);
     font-size: 12px;
 }
 
 .footer-btn {
     background: none;
-    border: 1px solid var(--terminal-border);
-    color: var(--matrix-cyan);
+    border: 1px solid rgba(196, 112, 138, 0.4);
+    color: var(--espresso-light);
     padding: 6px 12px;
     cursor: pointer;
-    font-family: inherit;
+    font-family: 'Jost', sans-serif;
     font-size: 12px;
-    border-radius: 4px;
+    border-radius: 6px;
     transition: all 0.2s;
 }
 
 .footer-btn:hover {
-    background: var(--matrix-dark-cyan);
-    box-shadow: 0 0 5px var(--matrix-glow);
+    background: rgba(196, 112, 138, 0.1);
+    border-color: var(--rose);
+    color: var(--rose);
 }
 
 .footer-info {
     margin-left: auto;
-    opacity: 0.6;
+    opacity: 0.55;
+    color: var(--espresso-light);
 }
 
 /* Animations */
-@keyframes blink {
-    0%, 50% { opacity: 1; }
-    51%, 100% { opacity: 0; }
+@keyframes sparkle {
+    0%, 100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+    50% {
+        opacity: 0.8;
+        transform: scale(1.15);
+    }
 }
 
 @keyframes pulse {

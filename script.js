@@ -1,4 +1,4 @@
-// Matrix Terminal Chatbot - JavaScript
+// Petal & Bloom Flower Shop Assistant - JavaScript
 
 // Configuration
 const CONFIG_KEY = 'matrix_chatbot_webhook_url';
@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
     loadConfiguration();
     setupEventListeners();
     displayWelcomeMessage();
-    initMatrixCanvas();
+    initPetalCanvas();
 });
 
 // Initialize DOM element references
@@ -78,7 +78,7 @@ function saveConfiguration() {
         updateStatus(true);
         enableInput();
         hideConfigPanel();
-        addMessage('system', `Configuration saved (${method}). Ready to chat!`);
+        addMessage('system', `Connected! Flora is ready to assist you. \u273F`);
     } catch (error) {
         addMessage('error', 'Invalid URL format. Please check and try again.');
     }
@@ -252,15 +252,15 @@ function addMessage(type, content, timestamp = new Date()) {
     messageDiv.className = `message ${type}`;
 
     const senderNames = {
-        'user': 'USER',
-        'bot': 'MATRIX_BOT',
-        'system': 'SYSTEM',
-        'error': 'ERROR'
+        'user': 'You',
+        'bot': 'Flora',
+        'system': 'Petal & Bloom',
+        'error': 'Notice'
     };
 
     messageDiv.innerHTML = `
         <div class="message-header">
-            <span class="message-sender">${senderNames[type] || 'UNKNOWN'}</span>
+            <span class="message-sender">${senderNames[type] || 'Unknown'}</span>
             <span class="message-time">${formatTime(timestamp)}</span>
         </div>
         <div class="message-content">${escapeHtml(content)}</div>
@@ -292,23 +292,20 @@ async function addMessageWithTyping(type, content) {
 
 // Display welcome message
 function displayWelcomeMessage() {
-    const welcomeText = `
-╔═══════════════════════════════════════════╗
-║   MATRIX TERMINAL CHATBOT INTERFACE v1.0  ║
-║   Connected to n8n Webhook System         ║
-╚═══════════════════════════════════════════╝
-
-System initialized. ${webhookUrl ? 'Ready to receive input.' : 'Please configure webhook URL to begin.'}
-
-Type your message below and press ENTER to send.
-    `.trim();
+    const welcomeText = `Welcome to Petal & Bloom \u273F
+Hello! I'm Flora, your personal flower shop assistant.
+I can help you with:
+  \u2022 Flower arrangements and bouquets
+  \u2022 Seasonal availability and pricing
+  \u2022 Care tips for your blooms
+  \u2022 Finding the perfect gift for any occasion`;
 
     addMessage('system', welcomeText);
 }
 
 // Clear chat history
 function clearChat() {
-    if (confirm('Clear all messages?')) {
+    if (confirm('Clear the conversation and start fresh?')) {
         elements.messageContainer.innerHTML = '';
         displayWelcomeMessage();
     }
@@ -390,95 +387,95 @@ document.addEventListener('submit', (e) => {
 });
 
 // ============================================
-// Matrix Canvas Animation
+// Floating Petal Canvas Animation
 // ============================================
 
-// Matrix animation variables
-let matrixCanvas, matrixCtx;
-let matrixColumns = [];
-const fontSize = 16;
-let columns = 0;
-const matrixChars = 'ｱｲｳｴｵｶｷｸｹｺｻｼｽｾｿﾀﾁﾂﾃﾄﾅﾆﾇﾈﾉﾊﾋﾌﾍﾎﾏﾐﾑﾒﾓﾔﾕﾖﾗﾘﾙﾚﾛﾜﾝ0123456789@#$%^&*()';
+let petalCanvas, petalCtx;
+let petals = [];
 
-// Initialize the matrix canvas animation
-function initMatrixCanvas() {
-    matrixCanvas = document.getElementById('matrixCanvas');
-    if (!matrixCanvas) {
-        console.error('Matrix canvas not found');
+// Petal colors: rose, lavender, sage
+const petalColors = [
+    [232, 160, 176],   // rose
+    [200, 168, 212],   // lavender
+    [139, 175, 142],   // sage
+    [253, 220, 230],   // light rose
+];
+
+// Initialize the floating petal canvas animation
+function initPetalCanvas() {
+    petalCanvas = document.getElementById('petalCanvas');
+    if (!petalCanvas) {
+        console.error('Petal canvas not found');
         return;
     }
 
-    matrixCtx = matrixCanvas.getContext('2d');
+    petalCtx = petalCanvas.getContext('2d');
 
     // Set canvas size to window size
-    resizeMatrixCanvas();
+    petalCanvas.width = window.innerWidth;
+    petalCanvas.height = window.innerHeight;
 
-    // Initialize column positions
-    resetMatrixColumns();
+    // Create 40 petal objects
+    petals = [];
+    for (let i = 0; i < 40; i++) {
+        petals.push(createPetal());
+    }
 
     // Start animation loop
-    animateMatrix();
+    animatePetals();
 
     // Handle window resize
     window.addEventListener('resize', () => {
-        resizeMatrixCanvas();
-        resetMatrixColumns();
+        petalCanvas.width = window.innerWidth;
+        petalCanvas.height = window.innerHeight;
     });
 }
 
-// Resize canvas to match window dimensions
-function resizeMatrixCanvas() {
-    matrixCanvas.width = window.innerWidth;
-    matrixCanvas.height = window.innerHeight;
-    columns = Math.floor(matrixCanvas.width / fontSize);
+// Create a single petal with random properties
+function createPetal(fromTop = false) {
+    const colorArr = petalColors[Math.floor(Math.random() * petalColors.length)];
+    return {
+        x: Math.random() * (petalCanvas ? petalCanvas.width : window.innerWidth),
+        y: fromTop
+            ? -10
+            : Math.random() * (petalCanvas ? petalCanvas.height : window.innerHeight),
+        size: 3 + Math.random() * 5,           // 3–8 px
+        opacity: 0.2 + Math.random() * 0.4,    // 0.2–0.6
+        speedY: 0.4 + Math.random() * 0.8,     // 0.4–1.2
+        rotation: Math.random() * Math.PI * 2,
+        rotationSpeed: (Math.random() - 0.5) * 0.03,  // ±0.015
+        color: colorArr,
+    };
 }
 
-// Reset all matrix columns with staggered starting positions
-function resetMatrixColumns() {
-    matrixColumns = [];
-    for (let i = 0; i < columns; i++) {
-        // Start columns at random heights for staggered effect
-        matrixColumns[i] = Math.floor(Math.random() * matrixCanvas.height / fontSize) * -1;
-    }
-}
+// Main petal animation loop
+function animatePetals() {
+    petalCtx.clearRect(0, 0, petalCanvas.width, petalCanvas.height);
 
-// Main animation loop
-function animateMatrix() {
-    // Semi-transparent black background for trail effect
-    matrixCtx.fillStyle = 'rgba(0, 0, 0, 0.05)';
-    matrixCtx.fillRect(0, 0, matrixCanvas.width, matrixCanvas.height);
+    petals.forEach((petal, index) => {
+        petalCtx.save();
+        petalCtx.translate(petal.x, petal.y);
+        petalCtx.rotate(petal.rotation);
+        petalCtx.globalAlpha = petal.opacity;
+        petalCtx.fillStyle = `rgb(${petal.color[0]}, ${petal.color[1]}, ${petal.color[2]})`;
 
-    // Set text properties
-    matrixCtx.font = `${fontSize}px monospace`;
+        // Draw ellipse as a petal shape
+        petalCtx.beginPath();
+        petalCtx.ellipse(0, 0, petal.size * 2, petal.size * 0.45, 0, 0, Math.PI * 2);
+        petalCtx.fill();
 
-    // Draw characters for each column
-    for (let i = 0; i < columns; i++) {
-        // Pick a random character
-        const char = matrixChars[Math.floor(Math.random() * matrixChars.length)];
+        petalCtx.restore();
 
-        // Calculate position
-        const x = i * fontSize;
-        const y = matrixColumns[i] * fontSize;
+        // Update position
+        petal.y += petal.speedY;
+        petal.x += Math.sin(petal.y * 0.02) * 0.5;
+        petal.rotation += petal.rotationSpeed;
 
-        // Random chance for bright white glow on leading character
-        if (Math.random() > 0.975) {
-            matrixCtx.fillStyle = '#ffffff';
-        } else {
-            matrixCtx.fillStyle = '#00ffff'; // Cyan color
+        // Recycle petal to top when it falls off-screen
+        if (petal.y > petalCanvas.height + 20) {
+            petals[index] = createPetal(true);
         }
+    });
 
-        // Draw the character
-        matrixCtx.fillText(char, x, y);
-
-        // Move column down
-        matrixColumns[i]++;
-
-        // Reset column when it goes off screen
-        if (y > matrixCanvas.height && Math.random() > 0.95) {
-            matrixColumns[i] = 0;
-        }
-    }
-
-    // Continue animation loop
-    requestAnimationFrame(animateMatrix);
+    requestAnimationFrame(animatePetals);
 }

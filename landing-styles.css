@@ -1,4 +1,4 @@
-/* Landing Page - 3D Gradient Hero Styles */
+/* Landing Page - Petal & Bloom Flower Shop Styles */
 
 * {
     margin: 0;
@@ -8,15 +8,15 @@
 
 :root {
     /* Color System */
-    --primary-blue: #0066FF;
-    --primary-purple: #8B5CF6;
-    --accent-cyan: #00F0FF;
-    --bg-dark: #0A0E27;
-    --bg-darker: #070B1F;
-    --text-white: #FFFFFF;
-    --text-gray: #A0AEC0;
-    --glass-bg: rgba(255, 255, 255, 0.1);
-    --glass-border: rgba(255, 255, 255, 0.2);
+    --primary-rose: #C4708A;
+    --primary-lavender: #C8A8D4;
+    --accent-rose-light: #E8A0B0;
+    --bg-cream: #FAF6F0;
+    --bg-cream-deep: #F3EBE1;
+    --text-espresso: #2C1A14;
+    --text-warm-gray: #7A6055;
+    --glass-bg: rgba(253, 248, 244, 0.5);
+    --glass-border: rgba(196, 112, 138, 0.2);
 
     /* Spacing */
     --spacing-xs: 0.5rem;
@@ -28,9 +28,9 @@
 }
 
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: var(--bg-dark);
-    color: var(--text-white);
+    font-family: 'Jost', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--bg-cream);
+    color: var(--text-espresso);
     overflow-x: hidden;
     line-height: 1.6;
 }
@@ -43,7 +43,7 @@ body {
     width: 100%;
     height: 100%;
     z-index: 0;
-    background: linear-gradient(135deg, var(--bg-darker) 0%, var(--bg-dark) 100%);
+    background: linear-gradient(135deg, var(--bg-cream-deep) 0%, var(--bg-cream) 100%);
 }
 
 /* Navigation */
@@ -55,8 +55,8 @@ body {
     z-index: 100;
     padding: var(--spacing-md) 0;
     backdrop-filter: blur(20px);
-    background: rgba(10, 14, 39, 0.8);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(250, 246, 240, 0.9);
+    border-bottom: 1px solid rgba(196, 112, 138, 0.15);
 }
 
 .nav-container {
@@ -77,12 +77,13 @@ body {
 }
 
 .logo-icon {
-    color: var(--accent-cyan);
+    color: var(--primary-rose);
     animation: pulse 2s infinite;
 }
 
 .logo-text {
-    background: linear-gradient(135deg, var(--primary-blue), var(--primary-purple));
+    font-family: 'Cormorant Garamond', serif;
+    background: linear-gradient(135deg, var(--primary-rose), var(--primary-lavender));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -94,7 +95,7 @@ body {
 }
 
 .nav-links a {
-    color: var(--text-gray);
+    color: var(--text-warm-gray);
     text-decoration: none;
     font-size: 0.95rem;
     font-weight: 500;
@@ -103,7 +104,7 @@ body {
 }
 
 .nav-links a:hover {
-    color: var(--text-white);
+    color: var(--text-espresso);
 }
 
 .nav-links a::after {
@@ -113,7 +114,7 @@ body {
     left: 0;
     width: 0;
     height: 2px;
-    background: linear-gradient(90deg, var(--primary-blue), var(--accent-cyan));
+    background: linear-gradient(90deg, var(--primary-rose), var(--accent-rose-light));
     transition: width 0.3s ease;
 }
 
@@ -139,24 +140,24 @@ body {
 
 .nav-btn-secondary {
     background: transparent;
-    color: var(--text-white);
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: var(--text-espresso);
+    border: 1px solid rgba(196, 112, 138, 0.3);
 }
 
 .nav-btn-secondary:hover {
-    background: rgba(255, 255, 255, 0.1);
-    border-color: rgba(255, 255, 255, 0.3);
+    background: rgba(196, 112, 138, 0.08);
+    border-color: var(--primary-rose);
 }
 
 .nav-btn-primary {
-    background: linear-gradient(135deg, var(--primary-blue), var(--primary-purple));
-    color: var(--text-white);
-    box-shadow: 0 4px 20px rgba(0, 102, 255, 0.3);
+    background: linear-gradient(135deg, var(--primary-rose), var(--primary-lavender));
+    color: #FDF8F4;
+    box-shadow: 0 4px 20px rgba(196, 112, 138, 0.3);
 }
 
 .nav-btn-primary:hover {
     transform: translateY(-2px);
-    box-shadow: 0 6px 30px rgba(0, 102, 255, 0.5);
+    box-shadow: 0 6px 30px rgba(196, 112, 138, 0.5);
 }
 
 /* Hero Section */
@@ -191,19 +192,19 @@ body {
     border-radius: 24px;
     border: 1px solid var(--glass-border);
     padding: var(--spacing-xl);
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 20px 60px rgba(196, 112, 138, 0.12);
 }
 
 .badge {
     display: inline-flex;
     align-items: center;
     gap: var(--spacing-xs);
-    background: rgba(0, 240, 255, 0.1);
-    border: 1px solid rgba(0, 240, 255, 0.3);
+    background: rgba(232, 160, 176, 0.15);
+    border: 1px solid rgba(232, 160, 176, 0.4);
     padding: 0.5rem 1rem;
     border-radius: 50px;
     font-size: 0.85rem;
-    color: var(--accent-cyan);
+    color: var(--primary-rose);
     margin-bottom: var(--spacing-md);
     animation: fadeIn 0.6s ease-out 0.3s backwards;
 }
@@ -213,16 +214,18 @@ body {
 }
 
 .hero-title {
+    font-family: 'Cormorant Garamond', serif;
     font-size: 4.5rem;
     font-weight: 800;
     line-height: 1.1;
     margin-bottom: var(--spacing-md);
+    color: var(--text-espresso);
     animation: fadeIn 0.6s ease-out 0.4s backwards;
 }
 
 .gradient-text {
     display: block;
-    background: linear-gradient(135deg, var(--primary-blue), var(--primary-purple), var(--accent-cyan));
+    background: linear-gradient(135deg, var(--primary-rose), var(--primary-lavender), var(--accent-rose-light));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -232,7 +235,7 @@ body {
 
 .hero-subtitle {
     font-size: 1.25rem;
-    color: var(--text-gray);
+    color: var(--text-warm-gray);
     line-height: 1.6;
     margin-bottom: var(--spacing-xl);
     animation: fadeIn 0.6s ease-out 0.5s backwards;
@@ -261,9 +264,9 @@ body {
 }
 
 .btn-primary {
-    background: linear-gradient(135deg, var(--primary-blue), var(--primary-purple));
-    color: var(--text-white);
-    box-shadow: 0 8px 30px rgba(0, 102, 255, 0.4);
+    background: linear-gradient(135deg, var(--primary-rose), var(--primary-lavender));
+    color: #FDF8F4;
+    box-shadow: 0 8px 30px rgba(196, 112, 138, 0.35);
     position: relative;
     overflow: hidden;
 }
@@ -288,7 +291,7 @@ body {
 
 .btn-primary:hover {
     transform: translateY(-3px);
-    box-shadow: 0 12px 40px rgba(0, 102, 255, 0.6);
+    box-shadow: 0 12px 40px rgba(196, 112, 138, 0.55);
 }
 
 .btn-arrow {
@@ -301,13 +304,13 @@ body {
 
 .btn-secondary {
     background: transparent;
-    color: var(--text-white);
-    border: 2px solid rgba(255, 255, 255, 0.2);
+    color: var(--text-espresso);
+    border: 2px solid rgba(196, 112, 138, 0.3);
 }
 
 .btn-secondary:hover {
-    background: rgba(255, 255, 255, 0.1);
-    border-color: rgba(255, 255, 255, 0.4);
+    background: rgba(196, 112, 138, 0.08);
+    border-color: var(--primary-rose);
     transform: translateY(-3px);
 }
 
@@ -321,7 +324,7 @@ body {
     align-items: center;
     gap: var(--spacing-md);
     padding-top: var(--spacing-md);
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    border-top: 1px solid rgba(196, 112, 138, 0.15);
     animation: fadeIn 0.6s ease-out 0.7s backwards;
 }
 
@@ -340,13 +343,13 @@ body {
 .rating-text,
 .users-text {
     font-size: 0.85rem;
-    color: var(--text-gray);
+    color: var(--text-warm-gray);
 }
 
 .divider {
     width: 1px;
     height: 40px;
-    background: rgba(255, 255, 255, 0.2);
+    background: rgba(196, 112, 138, 0.2);
 }
 
 .users {
@@ -364,13 +367,14 @@ body {
     width: 32px;
     height: 32px;
     border-radius: 50%;
-    background: linear-gradient(135deg, var(--primary-blue), var(--primary-purple));
-    border: 2px solid var(--bg-dark);
+    background: linear-gradient(135deg, var(--primary-rose), var(--primary-lavender));
+    border: 2px solid var(--bg-cream);
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: 0.75rem;
     font-weight: bold;
+    color: #FDF8F4;
     margin-left: -8px;
 }
 
@@ -388,7 +392,7 @@ body {
     border-radius: 16px;
     border: 1px solid var(--glass-border);
     padding: var(--spacing-md);
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 20px 60px rgba(196, 112, 138, 0.12);
     animation: float 6s ease-in-out infinite;
 }
 
@@ -428,15 +432,17 @@ body {
     font-size: 0.75rem;
     padding: 0.25rem 0.75rem;
     border-radius: 50px;
-    background: rgba(0, 240, 255, 0.2);
-    color: var(--accent-cyan);
-    border: 1px solid var(--accent-cyan);
+    background: rgba(232, 160, 176, 0.2);
+    color: var(--primary-rose);
+    border: 1px solid var(--accent-rose-light);
 }
 
 .card-title {
+    font-family: 'Cormorant Garamond', serif;
     font-size: 1rem;
     font-weight: 600;
     margin-bottom: var(--spacing-sm);
+    color: var(--text-espresso);
 }
 
 .card-chart {
@@ -448,7 +454,7 @@ body {
 
 .chart-bar {
     flex: 1;
-    background: linear-gradient(180deg, var(--accent-cyan), var(--primary-blue));
+    background: linear-gradient(180deg, var(--accent-rose-light), var(--primary-rose));
     border-radius: 4px;
     animation: growBar 1.5s ease-out;
 }
@@ -463,7 +469,7 @@ body {
     width: 8px;
     height: 8px;
     border-radius: 50%;
-    background: var(--accent-cyan);
+    background: var(--primary-rose);
     animation: pulse 1.5s infinite;
 }
 
@@ -477,7 +483,7 @@ body {
 
 .card-progress {
     height: 8px;
-    background: rgba(255, 255, 255, 0.1);
+    background: rgba(196, 112, 138, 0.12);
     border-radius: 50px;
     overflow: hidden;
 }
@@ -485,7 +491,7 @@ body {
 .progress-bar {
     height: 100%;
     width: 75%;
-    background: linear-gradient(90deg, var(--primary-blue), var(--accent-cyan));
+    background: linear-gradient(90deg, var(--primary-rose), var(--accent-rose-light));
     border-radius: 50px;
     animation: progressGrow 2s ease-out;
 }
@@ -495,14 +501,14 @@ body {
     position: absolute;
     border-radius: 50%;
     filter: blur(80px);
-    opacity: 0.6;
     animation: orbFloat 10s ease-in-out infinite;
 }
 
 .orb-1 {
     width: 300px;
     height: 300px;
-    background: radial-gradient(circle, var(--primary-blue), transparent);
+    background: radial-gradient(circle, var(--primary-rose), transparent);
+    opacity: 0.25;
     top: 20%;
     right: 10%;
     animation-delay: 0s;
@@ -511,7 +517,8 @@ body {
 .orb-2 {
     width: 250px;
     height: 250px;
-    background: radial-gradient(circle, var(--primary-purple), transparent);
+    background: radial-gradient(circle, var(--primary-lavender), transparent);
+    opacity: 0.12;
     bottom: 20%;
     left: 10%;
     animation-delay: 5s;
@@ -533,12 +540,13 @@ body {
 
 .scroll-text {
     font-size: 0.85rem;
-    color: var(--text-gray);
+    color: var(--text-warm-gray);
 }
 
 .scroll-arrow {
     font-size: 1.5rem;
     animation: bounce 2s infinite;
+    color: var(--primary-rose);
 }
 
 /* Animations */
