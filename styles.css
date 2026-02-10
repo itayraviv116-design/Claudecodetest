@@ -108,7 +108,8 @@ body {
 }
 
 .config-panel.show {
-    max-height: 250px;
+    max-height: 420px;
+    overflow-y: auto;
 }
 
 .config-header {
